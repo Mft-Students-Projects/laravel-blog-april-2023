@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\DashboardController;
 use \App\Http\Controllers\DashboardCategoryController;
 use \App\Http\Controllers\DashboardNewsController;
+use \App\Http\Controllers\DashboardReporterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::group(["prefix"=>"dashboard","middleware"=>["auth"]],function(){
 
     Route::resource("categories",DashboardCategoryController::class);
     Route::resource("news",DashboardNewsController::class);
+    Route::resource("reporters",DashboardReporterController::class);
 
 });
 
