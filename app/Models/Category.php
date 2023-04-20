@@ -20,7 +20,7 @@ class Category extends Model
     }
 
     function children(){
-        return $this->hasMany(Category::class,"parent_id","id");
+        return $this->hasMany(Category::class,"parent_id","id")->with("children");
     }
 
     function news(){

@@ -26,6 +26,7 @@ class ViewComposerProvider extends ServiceProvider
     {
         $categories = Category::with("children")->where("parent_id",null)->get();
 
+
 //        dd($categories);
 //        view()->share("categories",$categories); // all views
         view()->composer('layout', function($view) use ($categories)
