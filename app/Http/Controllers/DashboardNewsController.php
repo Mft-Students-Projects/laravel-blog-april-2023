@@ -51,7 +51,7 @@ class DashboardNewsController extends Controller
 
         $file = $request->file("image");
 
-        $md5 = md5(time().rand(1000,9999));
+        $md5 = md5(time().rand(1000,99999));
 
         $fileName = $md5.".".$file->getClientOriginalExtension();
 
