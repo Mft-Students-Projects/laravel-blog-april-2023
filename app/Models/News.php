@@ -18,4 +18,9 @@ class News extends Model
         "long_description",
         "views",
     ];
+
+
+    public function comments(){
+        return $this->hasMany(Comment::class,"news_id");
+    }
 }

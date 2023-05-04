@@ -38,6 +38,7 @@ Route::group(["prefix"=>"dashboard","middleware"=>["auth"]],function(){
 
 
 Route::get("/","App\Http\Controllers\HomeController@index");
+Route::post("/news/{id}","App\Http\Controllers\NewsController@saveComment")->name("client.comment");
 Route::get("/news/{id}","App\Http\Controllers\NewsController@show")->name("client.news");
 Route::get("/category/{id}","App\Http\Controllers\CategoryController@show")->name("client.category");
 Route::get("/contact","App\Http\Controllers\HomeController@contact");
