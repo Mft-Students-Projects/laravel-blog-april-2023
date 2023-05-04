@@ -38,6 +38,7 @@ Route::group(["prefix"=>"dashboard","middleware"=>["auth"]],function(){
 
 
 Route::get("/","App\Http\Controllers\HomeController@index");
+Route::get("/news/{id}","App\Http\Controllers\NewsController@show");
 Route::get("/contact","App\Http\Controllers\HomeController@contact");
 
 Auth::routes();
