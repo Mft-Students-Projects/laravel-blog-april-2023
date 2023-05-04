@@ -80,14 +80,12 @@
 
                                 <div class="col-lg-4">
                                     <div class="post-entry-1 border-bottom">
-                                        <a href="single-post.html"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
+                                        <a href="{{route("client.news",$news->id)}}"><img src="assets/img/post-landscape-5.jpg" alt="" class="img-fluid"></a>
                                         <div class="post-meta"><span class="date">{{$category->title}}</span> <span class="mx-1">&bullet;</span> <span>{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d ساعت H:i', strtotime($news->created_at))}}</span></div>
-                                        <h2 class="mb-2"><a href="single-post.html">{{$news->title}}</a></h2>
+                                        <h2 class="mb-2"><a href="{{route("client.news",$news->id)}}">{{$news->title}}</a></h2>
                                         <span class="author mb-3 d-block">Jenny Wilson</span>
                                         <p class="mb-4 d-block">{{$news->description}}</p>
                                     </div>
-
-
                                 </div>
 
                             @endforeach

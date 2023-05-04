@@ -2,7 +2,7 @@
     @foreach($menu_categories as $category)
 
         <li class="dropdown">
-            <a href="index.html">
+            <a href="{{route("client.category",$category->id)}}">
                 {{$category->title}}
             </a>
             @if($category->children->count() > 0)
