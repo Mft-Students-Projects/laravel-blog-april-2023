@@ -26,7 +26,7 @@ use \App\Http\Controllers\DashboardCommentController;
 Route::group(["prefix"=>"dashboard","middleware"=>["auth"]],function(){
 
 //    Route::get("/","App\Http\Controllers\DashboardController@index");
-    Route::get("/",[DashboardController::class,'index']);
+    Route::get("/",[DashboardController::class,'index'])->name("dashboard");
 
 //    Route::get("/categories",[DashboardCategoryController::class,"index"]);
 //    Route::get("/categories/create",[DashboardCategoryController::class,"create"]);

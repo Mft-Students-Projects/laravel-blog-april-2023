@@ -323,6 +323,14 @@
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
+                <li>
+                    <a href="{{route("dashboard")}}">
+                        <i class="fa fa-dashboard"></i> <span>داشبورد</span>
+
+                    </a>
+                </li>
+
+
                 <li class="treeview">
                     <a href="{{route("categories.index")}}">
                         <i class="fa fa-dashboard"></i> <span>دسته بندی</span>
@@ -366,14 +374,14 @@
 
 
                 <li class="treeview">
-                    <a href="/#">
+                    <a href="{{route("comments.index")}}">
                         <i class="fa fa-dashboard"></i> <span>دیدگاه</span>
                         <span class="pull-left-container">
               <i class="fa fa-angle-right pull-left"></i>
             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li class="active"><a href="/index.html"><i class="fa fa-circle-o"></i> لیست</a></li>
+                        <li class="active"><a href="{{route("comments.index")}}"><i class="fa fa-circle-o"></i> لیست</a></li>
                     </ul>
                 </li>
             </ul>
