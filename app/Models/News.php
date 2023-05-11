@@ -20,7 +20,7 @@ class News extends Model
     ];
 
 
-    public function comments(){
+    public function comments(){ // اگر فیلد رابطه در جدول مقابل است از متد has many استفاده میشود
         return $this->hasMany(Comment::class,"news_id");
     }
 }

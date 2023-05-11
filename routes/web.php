@@ -5,6 +5,7 @@ use \App\Http\Controllers\DashboardController;
 use \App\Http\Controllers\DashboardCategoryController;
 use \App\Http\Controllers\DashboardNewsController;
 use \App\Http\Controllers\DashboardReporterController;
+use \App\Http\Controllers\DashboardCommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,9 @@ Route::group(["prefix"=>"dashboard","middleware"=>["auth"]],function(){
 //    Route::get("/categories/create",[DashboardCategoryController::class,"create"]);
 
     Route::resource("categories",DashboardCategoryController::class);
+    Route::resource("comments",DashboardCommentController::class);
+    Route::get("comments/confirmed/{id}","App\Http\Controllers\DashboardCommentController@confirm")->name("comments.confirm");
+    Route::get("comments/replies/{id}","App\Http\Controllers\DashboardCommentController@replies")->name("comments.replies");
     Route::resource("news",DashboardNewsController::class);
     Route::resource("reporters",DashboardReporterController::class);
 

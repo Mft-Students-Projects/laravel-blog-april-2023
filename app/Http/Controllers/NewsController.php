@@ -10,8 +10,14 @@ class NewsController extends Controller
 {
     public function show($id){
         $news = News::with(["comments"=>function($query){
-            $query->where("parent_id",null)->with("children");
+            $query->where("parent_id",null)->where("confirmed",1)->with(["children"=>function($query){
+                $query->where("confirmed",1);
+            }]);
         }])->findorfail($id);
+
+//        echo "<pre>";
+//        print_r($news->toArray());
+//        echo "</pre>";
         return view("news",compact("news"));
     }
 
