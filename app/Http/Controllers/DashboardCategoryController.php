@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoriesResource;
 use App\Models\Category;
 use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
@@ -13,12 +14,16 @@ class DashboardCategoryController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
 
         $categories = Category::with("parent")->get();
 
 //        Debugbar::error($categories);
+
+        if($request->wantsJson()){
+            return CategoriesResource::collection($categories);
+        }
 
         return view("dashboard.categories.index",compact("categories"));
     }
@@ -54,9 +59,14 @@ class DashboardCategoryController extends Controller
             "parent_id"=>"nullable|exists:categories,id"
         ]);
 
-        Category::create($request->all());
+        $category = Category::create($request->all());
+
+        if($request->wantsJson()){
+            return $category;
+        }
 
         return redirect(route("categories.index"));
+
     }
 
     /**
@@ -101,10 +111,14 @@ class DashboardCategoryController extends Controller
             "parent_id"=>"nullable|exists:categories,id"
         ]);
 
-        Category::findorfail($id)->update($request->all());
+        $category = Category::findorfail($id)->update($request->all());
+
+
+        if($request->wantsJson()){
+           return $category;
+        }
 
         session()->flash("success","دسته بندی ویرایش شد !");
-
         return redirect(route("categories.index"));
     }
 

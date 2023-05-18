@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoriesResource;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    public function getCategories(){
+
+        $categories = Category::with("children")->where("parent_id",null)->get();
+
+        return CategoriesResource::collection($categories);
+
+    }
     /**
      * Create a new controller instance.
      *
